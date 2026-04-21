@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Mastery — Domine a Força da IA</title>
+    <meta name="description" content="Do zero ao desenvolvedor completo. Aprenda a dominar o Antigravity, criar times de agentes de IA e automatizar sua presença digital.">
+
+    <!-- Preconnect Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts: Anton (Display), Satoshi (Body via Fontshare), JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#0066FF',
+                            accent: '#00F2FE',
+                            dark: '#0A0A0A',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Anton', 'sans-serif'],
+                        body: ['Satoshi', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Clamp-based responsive typography */
+        .h-xl { font-size: clamp(48px, 12vw, 180px); }
+        .h-lg { font-size: clamp(36px, 8vw, 110px); }
+        .h-md { font-size: clamp(28px, 5vw, 64px); }
+        
+        /* Floating Nav Animation */
+        #nav-pill {
+            transition: all 0.5s var(--ease-spring);
+        }
+        .nav-scrolled {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 24px !important;
+        }
+
+        /* Hero Video/Canvas Overlay */
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,1) 100%);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-white font-body selection:bg-brand-primary selection:text-white">
+
+    <!-- Grain Overlay -->
+    <div class="grain-overlay">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <filter id="noise">
+                <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+            </filter>
+            <rect width="100%" height="100%" filter="url(#noise)" />
+        </svg>
+    </div>
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-brand-dark flex flex-col items-center justify-center">
+        <div class="relative">
+            <div class="h-16 w-16 border-4 border-brand-primary/20 border-t-brand-primary rounded-full animate-spin"></div>
+            <div class="absolute inset-0 flex items-center justify-center font-display text-xs">AG</div>
+        </div>
+        <div class="mt-8 overflow-hidden">
+            <div id="preloader-text" class="font-display text-2xl tracking-widest uppercase">INITIALIZING SYSTEM...</div>
+        </div>
+    </div>
+
+    <!-- Floating Navbar -->
+    <nav id="nav-wrapper" class="fixed top-8 left-0 w-full z-[100] px-6 pointer-events-none">
+        <div id="nav-pill" class="max-w-fit mx-auto glass rounded-full px-8 py-4 flex items-center gap-8 pointer-events-auto">
+            <a href="#" class="font-display text-xl tracking-tighter">AG<span class="text-brand-primary">M</span></a>
+            <div class="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-widest">
+                <a href="#problema" class="hover:text-brand-primary">O Problema</a>
+                <a href="#beneficios" class="hover:text-brand-primary">Benefícios</a>
+                <a href="#conteudo" class="hover:text-brand-primary">Conteúdo</a>
+                <a href="#faq" class="hover:text-brand-primary">FAQ</a>
+            </div>
+            <a href="#oferta" class="btn-pill btn-primary !py-3 !px-6 !text-[11px]">Entrar Agora</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center relative pt-32 pb-20">
+            <!-- Hero Asset (Background) -->
+            <div class="absolute inset-0 z-0">
+                <img id="hero-bg" src="assets/images/hero-tech-bg.jpg" alt="Antigravity Tech Background" class="w-full h-full object-cover opacity-40">
+                <div class="absolute inset-0 hero-overlay"></div>
+            </div>
+
+            <div class="container relative z-10">
+                <div class="reveal">
+                    <span class="pill pill-primary pill-glow mb-6">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
+                        </span>
+                        ⚡ Lançamento Exclusivo — Vagas Limitadas
+                    </span>
+                </div>
+                
+                <h1 class="h-xl font-display leading-[0.85] mb-6 reveal">
+                    ANTIGRAVITY<br>
+                    <span class="text-gradient">MASTERY</span>
+                </h1>
+
+                <p class="max-w-2xl mx-auto text-lg md:text-xl text-text-muted mb-10 reveal">
+                    Do zero ao desenvolvedor completo. Aprenda a dominar o Antigravity, criar times de agentes de IA, automatizar redes sociais e construir sites profissionais.
+                </p>
+
+                <div class="reveal">
+                    <a href="#oferta" class="btn-pill btn-primary text-lg px-12 py-6">
+                        QUERO ENTRAR AGORA →
+                    </a>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-50">
+                    <span class="text-[10px] uppercase tracking-[0.3em] font-bold">Scroll to Explore</span>
+                    <div class="w-[1px] h-12 bg-gradient-to-b from-brand-primary to-transparent"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROBLEMA SECTION -->
+        <section id="problema" class="bg-brand-dark">
+            <div class="container">
+                <div class="grid lg:grid-cols-2 gap-20 items-center">
+                    <div class="reveal">
+                        <span class="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 block">// o problema</span>
+                        <h2 class="h-lg mb-8">Você tem a ferramenta.<br><span class="opacity-40">Mas não o poder.</span></h2>
+                        <div class="space-y-6 text-text-muted text-lg">
+                            <p>O Antigravity é uma das plataformas mais poderosas para desenvolvimento moderno, mas a maioria dos devs usa 10% do que ele pode fazer.</p>
+                            <p>Você já ficou horas tentando instalar uma dependência? Travou no deploy? Não sabia como criar um time de agentes que trabalha enquanto você dorme?</p>
+                            <p class="text-white font-bold">Chegou a hora de parar de adivinhar e começar a construir de verdade.</p>
+                        </div>
+                    </div>
+
+                    <!-- Terminal Visual -->
+                    <div class="reveal lg:translate-x-10">
+                        <div class="terminal-window">
+                            <div class="terminal-header">
+                                <div class="dot dot-red"></div>
+                                <div class="dot dot-yellow"></div>
+                                <div class="dot dot-green"></div>
+                                <span class="ml-4 text-[10px] text-text-muted font-mono uppercase tracking-widest">Debug Console</span>
+                            </div>
+                            <div id="terminal-content" class="terminal-body font-mono">
+                                <!-- JS will type errors and then success -->
+                                <div class="terminal-error">✕ node_modules não encontrado</div>
+                                <div class="terminal-error">✕ Docker: permission denied</div>
+                                <div class="terminal-error">✕ Deploy falhou: build error</div>
+                                <div class="terminal-error">✕ Python: version mismatch</div>
+                                <div class="terminal-error">✕ MasterSkills: onde instala?</div>
+                                <div class="mt-6 pt-6 border-t border-white/10 opacity-0" id="terminal-after">
+                                    <div class="terminal-success">✓ Ambiente configurado em 10min</div>
+                                    <div class="terminal-success">✓ Time de agentes rodando 24/7</div>
+                                    <div class="terminal-success">✓ Site em produção + automação ativa</div>
+                                    <div class="terminal-success">✓ Deploy sem medo, sem erro</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFICIOS SECTION -->
+        <section id="beneficios" class="bg-[#0F0F0F]">
+            <div class="container">
+                <div class="text-center mb-20 reveal">
+                    <span class="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 block">// o que muda na sua vida</span>
+                    <h2 class="h-lg">6 TRANSFORMAÇÕES REAIS</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item 01 -->
+                    <div class="glass p-10 rounded-3xl hover:border-brand-primary/50 transition-colors group reveal">
+                        <span class="text-brand-primary font-display text-4xl mb-6 block opacity-20 group-hover:opacity-100 transition-opacity">01</span>
+                        <h3 class="text-2xl mb-4">Antigravity 10x mais poderoso</h3>
+                        <p class="text-text-muted">Você vai entender cada camada da plataforma e usar funcionalidades que 95% dos usuários nem sabem que existem.</p>
+                    </div>
+                    <!-- Item 02 -->
+                    <div class="glass p-10 rounded-3xl hover:border-brand-primary/50 transition-colors group reveal">
+                        <span class="text-brand-primary font-display text-4xl mb-6 block opacity-20 group-hover:opacity-100 transition-opacity">02</span>
+                        <h3 class="text-2xl mb-4">Times de Agentes funcionando</h3>
+                        <p class="text-text-muted">Crie o OpenSquad — seu time de agentes de IA trabalhando em paralelo, automatizando tarefas complexas no piloto automático.</p>
+                    </div>
+                    <!-- Item 03 -->
+                    <div class="glass p-10 rounded-3xl hover:border-brand-primary/50 transition-colors group reveal">
+                        <span class="text-brand-primary font-display text-4xl mb-6 block opacity-20 group-hover:opacity-100 transition-opacity">03</span>
+                        <h3 class="text-2xl mb-4">Frontend profissional do zero</h3>
+                        <p class="text-text-muted">HTML, CSS, Tailwind e JavaScript na prática. Sites que impressionam clientes e passam credibilidade.</p>
+                    </div>
+                    <!-- Item 04 -->
+                    <div class="glass p-10 rounded-3xl hover:border-brand-primary/50 transition-colors group reveal">
+                        <span class="text-brand-primary font-display text-4xl mb-6 block opacity-20 group-hover:opacity-100 transition-opacity">04</span>
+                        <h3 class="text-2xl mb-4">Deploy sem travar</h3>
+                        <p class="text-text-muted">Coloque seus projetos em produção de verdade. Sem surpresas, sem rollback envergonhado. Deploy como profissional.</p>
+                    </div>
+                    <!-- Item 05 -->
+                    <div class="glass p-10 rounded-3xl hover:border-brand-primary/50 transition-colors group reveal">
+                        <span class="text-brand-primary font-display text-4xl mb-6 block opacity-20 group-hover:opacity-100 transition-opacity">05</span>
+                        <h3 class="text-2xl mb-4">Automação de redes sociais</h3>
+                        <p class="text-text-muted">Instagram e LinkedIn no piloto automático com agentes inteligentes. Presença digital consistente sem gastar horas.</p>
+                    </div>
+                    <!-- Item 06 -->
+                    <div class="glass p-10 rounded-3xl hover:border-brand-primary/50 transition-colors group reveal">
+                        <span class="text-brand-primary font-display text-4xl mb-6 block opacity-20 group-hover:opacity-100 transition-opacity">06</span>
+                        <h3 class="text-2xl mb-4">Ambiente completo instalado</h3>
+                        <p class="text-text-muted">Node.js, Python, Docker e Compose configurados do jeito certo. Nunca mais "funciona na minha máquina".</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTEUDO SECTION -->
+        <section id="conteudo">
+            <div class="container">
+                <div class="grid lg:grid-cols-5 gap-12 items-start">
+                    <div class="lg:col-span-2 sticky top-32 reveal">
+                        <span class="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 block">// conteúdo do curso</span>
+                        <h2 class="h-lg mb-8">O QUE VOCÊ VAI APRENDER</h2>
+                        <p class="text-text-muted text-lg mb-10">Um currículo desenhado para transformar você em um desenvolvedor autônomo e focado em resultados reais.</p>
+                        <img src="assets/images/course-mockup.png" alt="Antigravity Mastery Course" class="w-full rounded-2xl shadow-2xl">
+                    </div>
+
+                    <div class="lg:col-span-3 space-y-4">
+                        <!-- Módulo 01 -->
+                        <div class="glass p-8 rounded-2xl flex gap-6 items-center hover:bg-white/5 transition-colors reveal">
+                            <div class="h-14 w-14 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary text-2xl">⚡</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Antigravity do Zero ao Avançado</h4>
+                                <p class="text-text-muted text-sm">Configuração, recursos ocultos e como deixá-la 10x mais potente.</p>
+                            </div>
+                        </div>
+                        <!-- Módulo 02 -->
+                        <div class="glass p-8 rounded-2xl flex gap-6 items-center hover:bg-white/5 transition-colors reveal">
+                            <div class="h-14 w-14 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary text-2xl">🧩</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Instalação de MasterSkills</h4>
+                                <p class="text-text-muted text-sm">Aprenda a gerenciar e criar suas próprias MasterSkills sem limitações.</p>
+                            </div>
+                        </div>
+                        <!-- Módulo 03 -->
+                        <div class="glass p-8 rounded-2xl flex gap-6 items-center hover:bg-white/5 transition-colors reveal">
+                            <div class="h-14 w-14 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary text-2xl">🛠️</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Node.js, Python & Docker</h4>
+                                <p class="text-text-muted text-sm">Ambientes completos e Docker Compose para projetos escaláveis.</p>
+                            </div>
+                        </div>
+                        <!-- Módulo 04 -->
+                        <div class="glass p-8 rounded-2xl flex gap-6 items-center hover:bg-white/5 transition-colors reveal">
+                            <div class="h-14 w-14 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary text-2xl">🤖</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">OpenSquad — Time de Agentes</h4>
+                                <p class="text-text-muted text-sm">Crie seu time de agentes de IA trabalhando em conjunto para automação inteligente.</p>
+                            </div>
+                        </div>
+                        <!-- Módulo 05 -->
+                        <div class="glass p-8 rounded-2xl flex gap-6 items-center hover:bg-white/5 transition-colors reveal">
+                            <div class="h-14 w-14 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary text-2xl">🎨</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Frontend: HTML, CSS, Tailwind & JS</h4>
+                                <p class="text-text-muted text-sm">Design responsivo, animações e componentes reutilizáveis na prática.</p>
+                            </div>
+                        </div>
+                        <!-- Módulo 06 -->
+                        <div class="glass p-8 rounded-2xl flex gap-6 items-center hover:bg-white/5 transition-colors reveal">
+                            <div class="h-14 w-14 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary text-2xl">🚀</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Deploy Completo</h4>
+                                <p class="text-text-muted text-sm">Estratégias de deploy contínuo e boas práticas de produção.</p>
+                            </div>
+                        </div>
+                        <!-- Módulo 07 -->
+                        <div class="glass p-8 rounded-2xl flex gap-6 items-center hover:bg-white/5 transition-colors reveal">
+                            <div class="h-14 w-14 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary text-2xl">📲</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Automação do Instagram</h4>
+                                <p class="text-text-muted text-sm">Posts e interações no piloto automático com seu time de agentes.</p>
+                            </div>
+                        </div>
+                        <!-- Módulo 08 -->
+                        <div class="glass p-8 rounded-2xl flex gap-6 items-center hover:bg-white/5 transition-colors reveal">
+                            <div class="h-14 w-14 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary text-2xl">💼</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Automação do LinkedIn</h4>
+                                <p class="text-text-muted text-sm">Prospecção e conteúdo com autoridade profissional sem esforço diário.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARA QUEM É SECTION -->
+        <section id="para-quem" class="bg-brand-dark">
+            <div class="container">
+                <div class="text-center mb-20 reveal">
+                    <span class="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 block">// para quem é</span>
+                    <h2 class="h-lg">É PARA VOCÊ SE...</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Sim -->
+                    <div class="bg-green-500/5 border border-green-500/20 p-12 rounded-3xl reveal">
+                        <h3 class="text-green-500 font-display text-4xl mb-8">✅ SIM — É PARA VOCÊ:</h3>
+                        <ul class="space-y-6">
+                            <li class="flex gap-4 items-start text-lg">
+                                <span class="text-green-500 mt-1">✓</span>
+                                <span>Quer aprender desenvolvimento com IA de verdade, não teoria.</span>
+                            </li>
+                            <li class="flex gap-4 items-start text-lg">
+                                <span class="text-green-500 mt-1">✓</span>
+                                <span>Está começando e quer um caminho claro e direto ao ponto.</span>
+                            </li>
+                            <li class="flex gap-4 items-start text-lg">
+                                <span class="text-green-500 mt-1">✓</span>
+                                <span>Já conhece o básico mas quer ir além com automações reais.</span>
+                            </li>
+                            <li class="flex gap-4 items-start text-lg">
+                                <span class="text-green-500 mt-1">✓</span>
+                                <span>Quer criar uma presença digital automatizada e profissional.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Não -->
+                    <div class="bg-red-500/5 border border-red-500/20 p-12 rounded-3xl reveal">
+                        <h3 class="text-red-500 font-display text-4xl mb-8">❌ NÃO — NÃO É PARA VOCÊ:</h3>
+                        <ul class="space-y-6 opacity-60">
+                            <li class="flex gap-4 items-start text-lg">
+                                <span class="text-red-500 mt-1">✕</span>
+                                <span>Quer apenas assistir vídeos sem colocar a mão na massa.</span>
+                            </li>
+                            <li class="flex gap-4 items-start text-lg">
+                                <span class="text-red-500 mt-1">✕</span>
+                                <span>Espera resultado sem esforço e sem praticar os exercícios.</span>
+                            </li>
+                            <li class="flex gap-4 items-start text-lg">
+                                <span class="text-red-500 mt-1">✕</span>
+                                <span>Não tem interesse em automação ou desenvolvimento web.</span>
+                            </li>
+                            <li class="flex gap-4 items-start text-lg">
+                                <span class="text-red-500 mt-1">✕</span>
+                                <span>Prefere continuar fazendo tudo manualmente sem evoluir.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BONUS SECTION -->
+        <section id="bonus" class="bg-[#0A0A0A]">
+            <div class="container">
+                <div class="text-center mb-20 reveal">
+                    <span class="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 block">// bônus exclusivos</span>
+                    <h2 class="h-lg">VOCÊ TAMBÉM LEVA ISSO</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Bonus 01 -->
+                    <div class="glass p-8 rounded-2xl relative overflow-hidden group reveal">
+                        <div class="absolute -top-4 -right-4 bg-brand-primary text-white text-[10px] font-bold px-4 py-6 rotate-45">FREE</div>
+                        <h4 class="text-brand-primary text-sm font-bold mb-4 uppercase">Bônus 01</h4>
+                        <h3 class="text-xl font-bold mb-4">Templates de Agentes Prontos</h3>
+                        <p class="text-text-muted text-sm mb-6">Biblioteca de prompts e configurações para criar agentes sem começar do zero.</p>
+                        <div class="flex items-center gap-3">
+                            <span class="line-through text-text-faint text-sm">R$ 97,00</span>
+                            <span class="text-brand-accent font-bold">GRÁTIS</span>
+                        </div>
+                    </div>
+                    <!-- Bonus 02 -->
+                    <div class="glass p-8 rounded-2xl relative overflow-hidden group reveal">
+                        <div class="absolute -top-4 -right-4 bg-brand-primary text-white text-[10px] font-bold px-4 py-6 rotate-45">FREE</div>
+                        <h4 class="text-brand-primary text-sm font-bold mb-4 uppercase">Bônus 02</h4>
+                        <h3 class="text-xl font-bold mb-4">Checklist de Deploy Sem Erro</h3>
+                        <p class="text-text-muted text-sm mb-6">Passo a passo completo para fazer deploy com confiança absoluta.</p>
+                        <div class="flex items-center gap-3">
+                            <span class="line-through text-text-faint text-sm">R$ 47,00</span>
+                            <span class="text-brand-accent font-bold">GRÁTIS</span>
+                        </div>
+                    </div>
+                    <!-- Bonus 03 -->
+                    <div class="glass p-8 rounded-2xl relative overflow-hidden group reveal">
+                        <div class="absolute -top-4 -right-4 bg-brand-primary text-white text-[10px] font-bold px-4 py-6 rotate-45">FREE</div>
+                        <h4 class="text-brand-primary text-sm font-bold mb-4 uppercase">Bônus 03</h4>
+                        <h3 class="text-xl font-bold mb-4">Comunidade Privada no Discord</h3>
+                        <p class="text-text-muted text-sm mb-6">Acesso ao grupo exclusivo para tirar dúvidas e evoluir junto.</p>
+                        <div class="flex items-center gap-3">
+                            <span class="line-through text-text-faint text-sm">Exclusivo</span>
+                            <span class="text-brand-accent font-bold">GRÁTIS</span>
+                        </div>
+                    </div>
+                    <!-- Bonus 04 -->
+                    <div class="glass p-8 rounded-2xl relative overflow-hidden group reveal">
+                        <div class="absolute -top-4 -right-4 bg-brand-primary text-white text-[10px] font-bold px-4 py-6 rotate-45">FREE</div>
+                        <h4 class="text-brand-primary text-sm font-bold mb-4 uppercase">Bônus 04</h4>
+                        <h3 class="text-xl font-bold mb-4">Kit de Componentes Tailwind</h3>
+                        <p class="text-text-muted text-sm mb-6">Coleção de componentes prontos para acelerar seu desenvolvimento.</p>
+                        <div class="flex items-center gap-3">
+                            <span class="line-through text-text-faint text-sm">R$ 67,00</span>
+                            <span class="text-brand-accent font-bold">GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OFERTA SECTION -->
+        <section id="oferta" class="relative py-32 overflow-hidden">
+            <!-- Glow background -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
+            
+            <div class="container relative z-10 text-center">
+                <div class="max-w-4xl mx-auto glass border-brand-primary/30 p-12 md:p-20 rounded-[40px] shadow-2xl reveal">
+                    <span class="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 block">// acesso completo</span>
+                    <h2 class="h-lg mb-4">TUDO ISSO POR APENAS</h2>
+                    <span class="inline-block bg-brand-primary/20 text-brand-primary text-xs font-bold px-4 py-2 rounded-full mb-10">🔥 OFERTA DE LANÇAMENTO</span>
+                    
+                    <div class="flex flex-col items-center mb-12">
+                        <span class="text-text-faint line-through text-2xl mb-2">de R$ 297,00</span>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-4xl font-display">R$</span>
+                            <span class="text-9xl font-display text-gradient">97</span>
+                        </div>
+                        <p class="text-xl text-text-muted mt-4">ou 12x de <span class="text-white font-bold">R$ 9,70</span> no cartão</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 text-left mb-12 border-t border-b border-white/5 py-10">
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3"><span class="text-brand-primary">✓</span> Acesso vitalício ao curso completo</li>
+                            <li class="flex items-center gap-3"><span class="text-brand-primary">✓</span> Todos os módulos inclusos</li>
+                            <li class="flex items-center gap-3"><span class="text-brand-primary">✓</span> Automação Instagram + LinkedIn</li>
+                        </ul>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3"><span class="text-brand-primary">✓</span> Todos os 4 bônus exclusivos</li>
+                            <li class="flex items-center gap-3"><span class="text-brand-primary">✓</span> Comunidade privada no Discord</li>
+                            <li class="flex items-center gap-3"><span class="text-brand-primary">✓</span> Garantia incondicional de 7 dias</li>
+                        </ul>
+                    </div>
+
+                    <a href="https://pay.hotmart.com/YOUR_ID" class="btn-pill btn-primary text-xl px-16 py-8 w-full md:w-auto">
+                        QUERO MEU ACESSO AGORA →
+                    </a>
+                    
+                    <p class="mt-8 text-text-faint text-sm flex items-center justify-center gap-2">
+                        🔒 Pagamento 100% seguro · Hotmart · Cartão, Pix ou Boleto
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEPOIMENTOS SECTION -->
+        <section id="depoimentos" class="bg-brand-dark">
+            <div class="container">
+                <div class="text-center mb-20 reveal">
+                    <span class="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 block">// quem já passou por aqui</span>
+                    <h2 class="h-lg">O QUE ESTÃO DIZENDO</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Depo 1 -->
+                    <div class="glass p-10 rounded-3xl reveal">
+                        <div class="text-yellow-500 mb-6 flex gap-1">★★★★★</div>
+                        <p class="text-lg italic mb-8">"Finalmente entendi como o Antigravity funciona de verdade. Em 2 semanas já tinha meu time de agentes rodando e meu primeiro site no ar. Valeu cada centavo."</p>
+                        <div>
+                            <div class="font-bold">Matheus Rodrigues</div>
+                            <div class="text-text-muted text-sm">Estudante de TI, SP</div>
+                        </div>
+                    </div>
+                    <!-- Depo 2 -->
+                    <div class="glass p-10 rounded-3xl reveal">
+                        <div class="text-yellow-500 mb-6 flex gap-1">★★★★★</div>
+                        <p class="text-lg italic mb-8">"Eu tentava fazer deploy há meses e sempre quebrava algo. Com o checklist e as aulas ficou simples demais. Já fiz deploy de 3 projetos sem nenhum problema."</p>
+                        <div>
+                            <div class="font-bold">Juliana Souza</div>
+                            <div class="text-text-muted text-sm">Freelancer, RJ</div>
+                        </div>
+                    </div>
+                    <!-- Depo 3 -->
+                    <div class="glass p-10 rounded-3xl reveal">
+                        <div class="text-yellow-500 mb-6 flex gap-1">★★★★★</div>
+                        <p class="text-lg italic mb-8">"O módulo de automação do Instagram foi insano. Meu perfil cresceu 40% em um mês com o time de agentes postando e interagindo. Dinheiro muito bem investido."</p>
+                        <div>
+                            <div class="font-bold">Felipe Lima</div>
+                            <div class="text-text-muted text-sm">Empreendedor Digital, MG</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GARANTIA SECTION -->
+        <section id="garantia" class="bg-[#0F0F0F]">
+            <div class="container">
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-16 reveal">
+                    <div class="w-48 h-48 flex-shrink-0 flex items-center justify-center relative">
+                        <svg viewBox="0 0 200 200" class="w-full h-full animate-[spin_20s_linear_infinite]">
+                            <path id="seal-path" d="M100,20 a80,80 0 1,1 0,160 a80,80 0 1,1 0,-160" fill="transparent" />
+                            <text class="fill-brand-primary font-bold text-[14px] uppercase tracking-[0.2em]">
+                                <textPath xlink:href="#seal-path">7 Dias de Garantia Incondicional • Risco Zero • </textPath>
+                            </text>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="font-display text-6xl text-brand-primary">7</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="h-md mb-6">RISCO ZERO. GARANTIA TOTAL.</h2>
+                        <p class="text-xl text-text-muted leading-relaxed">
+                            Se em 7 dias você achar que o curso não valeu, basta pedir reembolso e devolvemos 100% do seu dinheiro — sem burocracia, sem perguntas, sem julgamento. Você não tem nada a perder e tudo a ganhar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq">
+            <div class="container max-w-4xl">
+                <div class="text-center mb-20 reveal">
+                    <span class="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 block">// dúvidas frequentes</span>
+                    <h2 class="h-lg">PERGUNTAS FREQUENTES</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Q1 -->
+                    <div class="glass rounded-2xl overflow-hidden reveal">
+                        <button class="w-full p-8 text-left flex justify-between items-center group">
+                            <span class="text-xl font-bold">Preciso ter conhecimento prévio de programação?</span>
+                            <span class="text-2xl text-brand-primary group-hover:rotate-45 transition-transform">+</span>
+                        </button>
+                        <div class="px-8 pb-8 text-text-muted">
+                            Não precisa. O curso foi montado para funcionar do zero. Se você souber ligar o computador, já pode começar. O conteúdo vai do básico ao avançado de forma progressiva.
+                        </div>
+                    </div>
+                    <!-- Q2 -->
+                    <div class="glass rounded-2xl overflow-hidden reveal">
+                        <button class="w-full p-8 text-left flex justify-between items-center group">
+                            <span class="text-xl font-bold">Por quanto tempo tenho acesso ao conteúdo?</span>
+                            <span class="text-2xl text-brand-primary group-hover:rotate-45 transition-transform">+</span>
+                        </button>
+                        <div class="px-8 pb-8 text-text-muted">
+                            Acesso vitalício. Uma vez que você entra, o conteúdo é seu para sempre — incluindo todas as atualizações futuras sem custo adicional.
+                        </div>
+                    </div>
+                    <!-- Q3 -->
+                    <div class="glass rounded-2xl overflow-hidden reveal">
+                        <button class="w-full p-8 text-left flex justify-between items-center group">
+                            <span class="text-xl font-bold">O curso funciona no Windows, Mac e Linux?</span>
+                            <span class="text-2xl text-brand-primary group-hover:rotate-45 transition-transform">+</span>
+                        </button>
+                        <div class="px-8 pb-8 text-text-muted">
+                            Sim. Todo o conteúdo foi pensado para funcionar nos três sistemas. As aulas mostram as diferenças entre cada plataforma onde necessário.
+                        </div>
+                    </div>
+                    <!-- Q4 -->
+                    <div class="glass rounded-2xl overflow-hidden reveal">
+                        <button class="w-full p-8 text-left flex justify-between items-center group">
+                            <span class="text-xl font-bold">Qual forma de pagamento é aceita?</span>
+                            <span class="text-2xl text-brand-primary group-hover:rotate-45 transition-transform">+</span>
+                        </button>
+                        <div class="px-8 pb-8 text-text-muted">
+                            Cartão de crédito (até 12x), Pix (à vista) e boleto bancário. Tudo processado pela Hotmart com total segurança.
+                        </div>
+                    </div>
+                    <!-- Q5 -->
+                    <div class="glass rounded-2xl overflow-hidden reveal">
+                        <button class="w-full p-8 text-left flex justify-between items-center group">
+                            <span class="text-xl font-bold">Como funciona a garantia de 7 dias?</span>
+                            <span class="text-2xl text-brand-primary group-hover:rotate-45 transition-transform">+</span>
+                        </button>
+                        <div class="px-8 pb-8 text-text-muted">
+                            Se por qualquer motivo você não ficar satisfeito nos primeiros 7 dias, basta enviar um email pedindo o reembolso e o valor é devolvido integralmente. Sem perguntas.
+                        </div>
+                    </div>
+                    <!-- Q6 -->
+                    <div class="glass rounded-2xl overflow-hidden reveal">
+                        <button class="w-full p-8 text-left flex justify-between items-center group">
+                            <span class="text-xl font-bold">Vou realmente aprender a criar automações?</span>
+                            <span class="text-2xl text-brand-primary group-hover:rotate-45 transition-transform">+</span>
+                        </button>
+                        <div class="px-8 pb-8 text-text-muted">
+                            Sim. Tem um módulo inteiro dedicado a isso. Você vai montar um time de agentes de IA específico para redes sociais, com estratégias que funcionam hoje no algoritmo atual.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE O AUTOR SECTION -->
+        <section id="autor" class="bg-[#0A0A0A]">
+            <div class="container">
+                <div class="grid lg:grid-cols-2 gap-20 items-center">
+                    <div class="reveal">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="Antigravity Mastery Author" class="w-full rounded-[40px] shadow-2xl">
+                    </div>
+                    <div class="reveal">
+                        <span class="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 block">// sobre o criador</span>
+                        <h2 class="h-md mb-2">QUEM VAI TE ENSINAR</h2>
+                        <p class="text-brand-accent font-bold uppercase tracking-widest text-xs mb-8">Estudante de ADS · Dev Fullstack · Criador de Agentes</p>
+                        
+                        <div class="space-y-6 text-text-muted text-lg mb-12">
+                            <p>Sou estudante de Análise e Desenvolvimento de Sistemas — mas não esperei me formar para começar a construir. Enquanto a maioria ainda está na teoria, eu já estava colocando projetos no ar.</p>
+                            <p>Aprendi Antigravity na marra, instalei tudo que existe para instalar (e quebrei bastante coisa). Dominei o Docker, o Node, o Python, o Tailwind. Montei o OpenSquad do zero.</p>
+                            <p class="text-white">E agora estou colocando tudo que aprendi em um único curso — sem enrolação, direto ao ponto.</p>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 border-t border-white/5 pt-10">
+                            <div>
+                                <div class="text-3xl font-display text-brand-primary">8+</div>
+                                <div class="text-[10px] uppercase font-bold text-text-faint">Módulos</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-display text-brand-primary">100%</div>
+                                <div class="text-[10px] uppercase font-bold text-text-faint">Prático</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-display text-brand-primary">0</div>
+                                <div class="text-[10px] uppercase font-bold text-text-faint">Enrolação</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER CTA -->
+        <section id="footer-cta" class="text-center py-40">
+            <div class="container">
+                <div class="reveal">
+                    <span class="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 block">// última chance</span>
+                    <h2 class="h-lg mb-8">A DECISÃO É AGORA</h2>
+                    <p class="max-w-2xl mx-auto text-xl text-text-muted mb-12">
+                        R$97 que separam o dev que trava no setup do dev que tem time de agentes, site no ar e automação rodando.
+                    </p>
+                    <a href="#oferta" class="btn-pill btn-primary text-xl px-16 py-8">
+                        GARANTIR MINHA VAGA →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts: GSAP + ScrollTrigger + Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/darkroomengineering/lenis@1.0.42/dist/lenis.min.js"></script>
+    
+    <script src="js/main.js"></script>
+
+</body>
+</html>
