@@ -24,7 +24,7 @@
                         brand: {
                             primary: '#0066FF',
                             accent: '#00F2FE',
-                            dark: '#0A0A0A',
+                            dark: '#000000',
                         }
                     },
                     fontFamily: {
@@ -59,21 +59,12 @@
 
         /* Hero Video/Canvas Overlay */
         .hero-overlay {
-            background: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,1) 100%);
+            background: #000000;
         }
     </style>
 </head>
 <body class="bg-brand-dark text-white font-body selection:bg-brand-primary selection:text-white">
 
-    <!-- Grain Overlay -->
-    <div class="grain-overlay">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <filter id="noise">
-                <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
-            </filter>
-            <rect width="100%" height="100%" filter="url(#noise)" />
-        </svg>
-    </div>
 
     <!-- Preloader -->
     <div id="preloader" class="fixed inset-0 z-[9999] bg-brand-dark flex flex-col items-center justify-center">
@@ -107,8 +98,11 @@
         <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center relative pt-32 pb-20">
             <!-- Hero Asset (Background) -->
             <div class="absolute inset-0 z-0">
-                <img id="hero-bg" src="assets/images/hero-tech-bg.jpg" alt="Antigravity Tech Background" class="w-full h-full object-cover opacity-40">
-                <div class="absolute inset-0 hero-overlay"></div>
+                <div id="hero-canvas-container" class="absolute inset-0 w-full h-full">
+                    <canvas id="hero-canvas" class="w-full h-full object-cover"></canvas>
+                </div>
+                <div id="dotted-surface" class="absolute inset-0 opacity-30"></div>
+                <div class="absolute inset-0 hero-overlay pointer-events-none" style="background: radial-gradient(circle at center, transparent 0%, #000 90%);"></div>
             </div>
 
             <div class="container relative z-10">
@@ -132,7 +126,7 @@
                 </p>
 
                 <div class="reveal">
-                    <a href="#oferta" class="btn-pill btn-primary text-lg px-12 py-6">
+                    <a href="#oferta" class="rainbow-button">
                         QUERO ENTRAR AGORA →
                     </a>
                 </div>
@@ -142,6 +136,96 @@
                     <span class="text-[10px] uppercase tracking-[0.3em] font-bold">Scroll to Explore</span>
                     <div class="w-[1px] h-12 bg-gradient-to-b from-brand-primary to-transparent"></div>
                 </div>
+            </div>
+        </section>
+
+        <!-- TECH SLIDER SECTION -->
+        <section id="tech-slider" class="py-12 bg-black border-y border-white/5 relative overflow-hidden">
+            <!-- Left Progressive Blur -->
+            <div class="progressive-blur-left"></div>
+            
+            <div class="flex items-center">
+                <div class="infinite-slider flex gap-16 items-center">
+                    <!-- Tech Items -->
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="Node.js"></div>
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" alt="Python"></div>
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/netlify/netlify-icon.svg" alt="Netlify"></div>
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="HTML5"></div>
+                    <div class="tech-item"><img src="assets/logos/css3.png" alt="CSS3"></div>
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" alt="JavaScript"></div>
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind"></div>
+                    <div class="tech-item"><img src="assets/logos/claude.png" alt="Claude Code"></div>
+                    <div class="tech-item"><img src="assets/logos/antigravity.png" alt="Antigravity"></div>
+                    <div class="tech-item"><img src="assets/logos/remotion.png" alt="Remotion"></div>
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="Figma"></div>
+                    
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="Node.js"></div>
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" alt="Python"></div>
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/netlify/netlify-icon.svg" alt="Netlify"></div>
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="HTML5"></div>
+                    <div class="tech-item"><img src="assets/logos/css3.png" alt="CSS3"></div>
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" alt="JavaScript"></div>
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind"></div>
+                    <div class="tech-item"><img src="assets/logos/claude.png" alt="Claude Code"></div>
+                    <div class="tech-item"><img src="assets/logos/antigravity.png" alt="Antigravity"></div>
+                    <div class="tech-item"><img src="assets/logos/remotion.png" alt="Remotion"></div>
+                    <div class="tech-item"><img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="Figma"></div>
+                </div>
+            </div>
+
+            <!-- Right Progressive Blur -->
+            <div class="progressive-blur-right"></div>
+        </section>
+
+        <!-- MANIFESTO TICKER -->
+        <section class="manifesto-ticker">
+            <div class="manifesto-track">
+                <!-- Item 1 -->
+                <div class="manifesto-item">
+                    <span>AGENTE IA</span>
+                    <div class="manifesto-dot"></div>
+                </div>
+                <!-- Item 2 -->
+                <div class="manifesto-item">
+                    <span>AUTOMAÇÃO</span>
+                    <div class="manifesto-dot"></div>
+                </div>
+                <!-- Item 3 -->
+                <div class="manifesto-item">
+                    <span>ANTIGRAVITY</span>
+                    <div class="manifesto-dot"></div>
+                </div>
+                <!-- Item 4 -->
+                <div class="manifesto-item">
+                    <span>DOMÍNIO TOTAL</span>
+                    <div class="manifesto-dot"></div>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="manifesto-item">
+                    <span>AGENTE IA</span>
+                    <div class="manifesto-dot"></div>
+                </div>
+                <div class="manifesto-item">
+                    <span>AUTOMAÇÃO</span>
+                    <div class="manifesto-dot"></div>
+                </div>
+                <div class="manifesto-item">
+                    <span>ANTIGRAVITY</span>
+                    <div class="manifesto-dot"></div>
+                </div>
+                <div class="manifesto-item">
+                    <span>DOMÍNIO TOTAL</span>
+                    <div class="manifesto-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDITORIAL BREAK -->
+        <section class="editorial-break" style="background-image: url('https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2000&auto=format&fit=crop');">
+            <div class="editorial-content reveal">
+                <h2 class="editorial-headline">A NOVA ERA DA<br><span class="text-gradient">ENGENHARIA IA</span></h2>
+                <p class="editorial-sub">O Antigravity não é apenas uma ferramenta. É o seu novo sistema operacional para o sucesso na era da inteligência artificial.</p>
             </div>
         </section>
 
@@ -159,9 +243,31 @@
                         </div>
                     </div>
 
-                    <!-- Terminal Visual -->
-                    <div class="reveal lg:translate-x-10">
-                        <div class="terminal-window">
+                    <!-- Terminal Visual & Icon Cloud -->
+                    <div class="reveal lg:translate-x-10 relative">
+                        <div id="icon-cloud-container" class="absolute -top-20 -right-20 w-80 h-80 opacity-100 z-0">
+                            <canvas id="icon-cloud-canvas" width="400" height="400" class="w-full h-full"></canvas>
+                        </div>
+                        
+                        <div id="tech-tags" style="display: none;">
+                            <ul>
+                                <li><a href="#">Node.js</a></li>
+                                <li><a href="#">Python</a></li>
+                                <li><a href="#">Netlify</a></li>
+                                <li><a href="#">Tailwind</a></li>
+                                <li><a href="#">React</a></li>
+                                <li><a href="#">Next.js</a></li>
+                                <li><a href="#">Claude</a></li>
+                                <li><a href="#">Antigravity</a></li>
+                                <li><a href="#">Docker</a></li>
+                                <li><a href="#">Git</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">TypeScript</a></li>
+                                <li><a href="#">AI Agents</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="terminal-window relative z-10">
                             <div class="terminal-header">
                                 <div class="dot dot-red"></div>
                                 <div class="dot dot-yellow"></div>
@@ -435,9 +541,6 @@
 
         <!-- OFERTA SECTION -->
         <section id="oferta" class="relative py-32 overflow-hidden">
-            <!-- Glow background -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
-            
             <div class="container relative z-10 text-center">
                 <div class="max-w-4xl mx-auto glass border-brand-primary/30 p-12 md:p-20 rounded-[40px] shadow-2xl reveal">
                     <span class="text-brand-primary font-mono text-sm tracking-widest uppercase mb-4 block">// acesso completo</span>
@@ -466,7 +569,7 @@
                         </ul>
                     </div>
 
-                    <a href="https://pay.hotmart.com/YOUR_ID" class="btn-pill btn-primary text-xl px-16 py-8 w-full md:w-auto">
+                    <a href="https://pay.hotmart.com/YOUR_ID" class="rainbow-button w-full md:w-auto">
                         QUERO MEU ACESSO AGORA →
                     </a>
                     
@@ -661,7 +764,7 @@
                     <p class="max-w-2xl mx-auto text-xl text-text-muted mb-12">
                         R$97 que separam o dev que trava no setup do dev que tem time de agentes, site no ar e automação rodando.
                     </p>
-                    <a href="#oferta" class="btn-pill btn-primary text-xl px-16 py-8">
+                    <a href="#oferta" class="rainbow-button">
                         GARANTIR MINHA VAGA →
                     </a>
                 </div>
@@ -671,9 +774,11 @@
     </main>
 
     <!-- Scripts: GSAP + ScrollTrigger + Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tagcanvas@2.9.0/tagcanvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/darkroomengineering/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     
     <script src="js/main.js"></script>
 
